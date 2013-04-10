@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<p>
+  <b>Order TOtal:</b>
+  <%= number_to_currency(@order.subtotal) %>
+</p>
 <p>
   <b>Name:</b>
   <%= @order.name %>
@@ -20,6 +23,7 @@
   <%= @order.pay_type %>
 </p>
 
+<%= render  @order.line_items %>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
+
 <%= link_to 'Back', orders_path %>

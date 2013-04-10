@@ -1,0 +1,7 @@
+<div class="game">
+<h2><%=  line_item.game.title %></h2>
+<p class="gamep"><%= image_tag line_item.game.image_url ,:class=>"gameimage" %></p>
+<p>item total<%= number_to_currency(line_item.total_price) %></p>
+<p>unit price <%= number_to_currency( line_item.game.price) %></p>
+<p>Quantity<%=  line_item.quantity %></p>
+<div>

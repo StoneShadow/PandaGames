@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   attr_accessible :address, :email, :name, :pay_type, :user_id
  validates :pay_type, inclusion: PAYMENT_TYPE
   belongs_to :user
-
+  has_many :line_items
 
     def add_order_from_items(users_id)
      items=LineItem.where(:user_id=>users_id)

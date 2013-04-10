@@ -52,7 +52,7 @@ end
 
     respond_to do |format|
       
-      format.html { redirect_to(root_url,:notice=> 'Line Item was created')}  
+      format.html { redirect_to(line_items_path,:notice=> 'Line Item was created')}  
      end
 
       

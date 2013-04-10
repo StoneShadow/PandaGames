@@ -11,6 +11,7 @@
 <%= link_to 'home' , root_path %>
 	<%= render :partial => "share/user_nav" %>
 	<%= link_to 'Cart' , '/line_items' %>
+		<%= link_to 'Order record' , '/orders' %>
  <p style="color: green"><%= flash[:notice] %></p>
  <p style="color: red"><%= flash[:error] %></p>
 <%= yield %>
