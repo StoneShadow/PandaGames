@@ -1,6 +1,9 @@
 PandaGames::Application.routes.draw do
+   devise_for :users
+  resources :line_items
 
-  devise_for :users
+
+  match "add_item/:id" => "line_items#add_item" , :as => "add_item"
 
   root :to => "games#index"
   devise_for :admin_users, ActiveAdmin::Devise.config

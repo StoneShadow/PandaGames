@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<%= render :partial => "share/user_nav" %>
+	<%= link_to 'Cart' , 'line_items' %>
  <p style="color: green"><%= flash[:notice] %></p>
  <p style="color: red"><%= flash[:error] %></p>
 <%= yield %>
