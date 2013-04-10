@@ -1,4 +1,8 @@
 PandaGames::Application.routes.draw do
+
+  devise_for :users
+
+  root :to => "games#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -6,6 +10,8 @@ PandaGames::Application.routes.draw do
 
 
   resources :games
+
+  
 
 
   # The priority is based upon order of creation:
