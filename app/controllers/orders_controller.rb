@@ -1,2 +1,54 @@
 class OrdersController < InheritedResources::Base
+
+
+	 def new
+         @items_in_cart=LineItem.where(:user_id=>current_user.id)
+
+         if @items_in_cart.empty?
+         	redirect_to root_url, notice: "cart is empyt"
+         	return
+         end
+
+         @order=Order.new
+         @order.email=current_user.email
+	 end
+
+
+
+
+
+
+       def create
+
+       		 	@order=Order.new(params[:order])
+	 	items=LineItem.where(:user_id=>current_user.id)
+
+	 	items.each do |item|
+	 		item.user_id=nil
+	 		item.order_id=@order.id
+	 		item.save
+	 	end
+	    @order.user_id=current_user.id
+    # @order = Order.new(order_params)
+    # @order.add_line_items_from_cart(@cart)
+
+    respond_to do |format|
+      if @order.save
+
+
+        format.html { redirect_to root_url, notice: 
+          'Thank you for your order.' }
+        format.json { render action: 'show', status: :created,
+          location: @order }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @order.errors,
+          status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
+
 end
