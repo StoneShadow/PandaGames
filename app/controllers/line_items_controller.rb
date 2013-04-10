@@ -6,12 +6,16 @@ class LineItemsController < InheritedResources::Base
 
 def index
   @line_items=LineItem.where(:user_id=>current_user.id)
+  if @line_items.empty?
+     redirect_to(root_url,:notice=> 'you cart is empty')
+  else
   items=LineItem.where(:user_id => current_user.id)
   sum=0.0
   items.each do |item|
   sum+=item.total_price
   end
   @subtotal=sum
+  end
 end
 
 

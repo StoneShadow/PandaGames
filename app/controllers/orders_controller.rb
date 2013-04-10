@@ -1,5 +1,5 @@
 class OrdersController < InheritedResources::Base
-
+  before_filter :authenticate_user!
 
 	 def new
          @items_in_cart=LineItem.where(:user_id=>current_user.id)
@@ -15,7 +15,10 @@ class OrdersController < InheritedResources::Base
 
 
 
-
+   def index
+    @orders=Order.where(:user_id=>current_user.id)
+     
+   end
 
 
        def create
@@ -23,9 +26,12 @@ class OrdersController < InheritedResources::Base
        		 	@order=Order.new(params[:order])
 	 	items=LineItem.where(:user_id=>current_user.id)
 
+    sum=0.0
 	 	items.each do |item|
 	 		item.user_id=nil
 	 		item.order_id=@order.id
+
+      sum+=item.total_price
 	 		item.save
 	 	end
 	    @order.user_id=current_user.id
