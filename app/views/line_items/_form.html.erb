@@ -12,12 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :game_id %><br />
-    <%= f.number_field :game_id %>
+  <%= @line_item.game.title %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.label :quantity  %><br />
+    <%= f.number_field :quantity  %>
   </div>
   <div class="actions">
     <%= f.submit %>
