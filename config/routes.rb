@@ -17,7 +17,9 @@ PandaGames::Application.routes.draw do
 
   resources :games
 
+  match "search" => "finder#search", :as => 'search', :via => :get
   
+  match "results" => "finder#search_results", :as => 'results', :via => :post
 
 
   # The priority is based upon order of creation:

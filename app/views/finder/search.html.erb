@@ -1,0 +1,7 @@
+<h1>Search Customers</h1>
+
+<%= form_tag results_path do %>
+  <%= label_tag "Search" %>
+  <%= text_field_tag :keyword %>
+  <%= submit_tag "Search" %>
+<% end %>

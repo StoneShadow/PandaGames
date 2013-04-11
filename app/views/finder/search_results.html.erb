@@ -1,0 +1,9 @@
+<h1>Search Results for "<%= @keyword %>"</h1>
+
+<% if @games.empty? %>
+  <p><em>Sorry no customers were found.</em></p>
+<% end %>
+
+<div class="game">
+  <%= render @games %>
+</div>
