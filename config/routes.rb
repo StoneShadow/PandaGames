@@ -1,4 +1,7 @@
 PandaGames::Application.routes.draw do
+  resources :provinces
+
+
   resources :orders
 
 

@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	PAYMENT_TYPE=["check","credit card"]
+	PAYMENT_TYPE=["cheque","credit card", "cash", "check"]
   attr_accessible :address, :email, :name, :pay_type, :user_id
  validates :pay_type, inclusion: PAYMENT_TYPE
   belongs_to :user
