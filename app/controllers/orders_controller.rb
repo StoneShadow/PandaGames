@@ -2,7 +2,7 @@ class OrdersController < InheritedResources::Base
   before_filter :authenticate_user!
 
 	 def new
-
+@provinces = Province.order(:name)
 
          @items_in_cart=LineItem.where(:user_id=>current_user.id)
 
@@ -34,6 +34,7 @@ class OrdersController < InheritedResources::Base
 
        def create
 
+
        		 	@order=Order.new(params[:order])
 	 	items=LineItem.where(:user_id=>current_user.id)
 
@@ -47,8 +48,7 @@ class OrdersController < InheritedResources::Base
 	 	end
       @order.subtotal=sum
 	    @order.user_id=current_user.id
-    # @order = Order.new(order_params)
-    # @order.add_line_items_from_cart(@cart)
+      @order.tax=subtotal*order.province.tax
 
     respond_to do |format|
       if @order.save

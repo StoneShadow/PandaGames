@@ -19,6 +19,12 @@
     <%= f.label :address %><br />
     <%= f.text_area :address %>
   </div>
+
+  <div class="field">
+    <%= f.label :province_id %><br />
+    <%= f.collection_select :province_id, @provinces, :id, :name %>
+  </div>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>

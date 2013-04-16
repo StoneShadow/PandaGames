@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
 	PAYMENT_TYPE=["check","credit card"]
   attr_accessible :address, :email, :name, :pay_type, :user_id,:province_id
  validates :pay_type, inclusion: PAYMENT_TYPE
+  validates :province_id, :presence=>true
   belongs_to :user
   belongs_to :province
   has_many :line_items

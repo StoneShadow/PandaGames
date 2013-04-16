@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416134045) do
+ActiveRecord::Schema.define(:version => 20130416140659) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -76,10 +76,12 @@ ActiveRecord::Schema.define(:version => 20130416134045) do
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-    t.integer  "user_id",    :default => 1
-    t.decimal  "subtotal",   :default => 0.0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "user_id",     :default => 1
+    t.decimal  "subtotal",    :default => 0.0
+    t.integer  "province_id", :default => 1
+    t.decimal  "tax",         :default => 0.0
   end
 
   create_table "provinces", :force => true do |t|
